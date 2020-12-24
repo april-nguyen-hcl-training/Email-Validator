@@ -20,7 +20,22 @@ public class EmailList {
 
     public void printEmails() {
         for (int i = 0; i < this.emails.length; i++) {
+            if (null == this.emails[i]) {
+                continue;
+            }
             System.out.println(this.emails[i]);
         }
+    }
+
+    public boolean foundMatch(String input) {
+        for (int i = 0; i < this.emails.length; i++) {
+            if (null == this.emails[i]) {
+                continue;
+            }
+            if (this.emails[i].equalsIgnoreCase(input)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

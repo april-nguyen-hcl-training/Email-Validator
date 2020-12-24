@@ -1,9 +1,11 @@
 package EmailValidator;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-        EmailList emailList = new EmailList(10);
+        EmailList emailList = new EmailList(15);
         emailList.addEmail("Bob.Bezanga@Company.com");
         emailList.addEmail("Sally.Zimmers@Company.com");
         emailList.addEmail("Peter.Pinkelton@Company.com");
@@ -17,6 +19,17 @@ public class Main {
         emailList.addEmail("Big.Show@Company.com");
         emailList.addEmail("Doug.Dimmadome@Company.com");
 
-        emailList.printEmails();
+        // emailList.printEmails();
+
+        System.out.println("Provide an email to search for:");
+        Scanner scan = new Scanner(System.in);
+        String searchFor = scan.nextLine();
+
+        boolean foundMatch = emailList.foundMatch(searchFor);
+        if (foundMatch) {
+            System.out.println(searchFor + " is in email list");
+        } else {
+            System.out.println(searchFor + " is not in email list");
+        }
     }
 }
