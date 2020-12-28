@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        EmailList emailList = new EmailList(15);
+        EmailList emailList = new EmailList();
         emailList.addEmail("Bob.Bezanga@Company.com");
         emailList.addEmail("Sally.Zimmers@Company.com");
         emailList.addEmail("Peter.Pinkelton@Company.com");

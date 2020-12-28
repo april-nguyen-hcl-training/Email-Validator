@@ -1,38 +1,27 @@
 package EmailValidator;
 
-public class EmailList {
-    String[] emails;
-    int nextIndex = 0;
-    int arraySize = 0;
+import java.util.ArrayList;
 
-    public EmailList(int size) {
-        this.arraySize = size;
-        this.emails = new String[size];
+public class EmailList {
+    ArrayList<String> emails;
+
+    public EmailList() {
+        this.emails = new ArrayList<String>();
     }
 
     public void addEmail(String email) {
-        this.emails[this.nextIndex] = email;
-        this.nextIndex++;
-        if (this.nextIndex >= this.arraySize) {
-            this.nextIndex = 0;
-        }
+        this.emails.add(email);
     }
 
     public void printEmails() {
-        for (int i = 0; i < this.emails.length; i++) {
-            if (null == this.emails[i]) {
-                continue;
-            }
-            System.out.println(this.emails[i]);
+        for (String e:emails) {
+            System.out.println(e);
         }
     }
 
     public boolean foundMatch(String input) {
-        for (int i = 0; i < this.emails.length; i++) {
-            if (null == this.emails[i]) {
-                continue;
-            }
-            if (this.emails[i].equalsIgnoreCase(input)) {
+        for (String e:emails) {
+            if (e.equalsIgnoreCase(input)) {
                 return true;
             }
         }
